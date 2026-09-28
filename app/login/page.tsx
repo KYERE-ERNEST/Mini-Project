@@ -82,14 +82,24 @@ export default function LoginPage() {
         email: registerEmail,
         password: registerPassword
       })
-      if (result.message === "Registration successful!") {
-        setSuccess("Account created successfully! Please login.")
-        setRegisterName("")
-        setRegisterStudentId("")
-        setRegisterEmail("")
-        setRegisterPassword("")
-        setRegisterConfirmPassword("")
-      } else {
+  if (result.message === "Registration successful!") {
+  // Auto login after registration
+  const loginResult = await api.login({ 
+    email: registerEmail, 
+    password: registerPassword 
+  })
+  if (loginResult.token) {
+    saveAuth(loginResult.token, loginResult.user)
+    router.push("/chat")
+  } else {
+    setSuccess("Account created successfully! Please login.")
+  }
+  setRegisterName("")
+  setRegisterStudentId("")
+  setRegisterEmail("")
+  setRegisterPassword("")
+  setRegisterConfirmPassword("")
+} else {
         setError(result.message || "Registration failed. Please try again.")
       }
     } catch (err) {
@@ -133,11 +143,7 @@ export default function LoginPage() {
               <p className="text-xs text-muted-foreground">Kumasi Technical University</p>
             </div>
           </div>
-          <Link href="/admin/login">
-            <Button variant="ghost" size="sm" className="text-muted-foreground">
-              Admin Login
-            </Button>
-          </Link>
+          
         </div>
       </header>
 

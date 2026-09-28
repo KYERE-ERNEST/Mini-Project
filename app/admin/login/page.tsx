@@ -3,7 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import { Eye, EyeOff, Mail, Lock, Shield } from "lucide-react"
+import { Eye, EyeOff, Mail, Lock } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -51,8 +51,8 @@ export default function AdminLoginPage() {
       <header className="border-b border-border bg-card">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary">
-              <span className="text-lg font-bold text-primary-foreground">K</span>
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl overflow-hidden bg-white">
+              <img src="/kstu-logo.png" alt="KsTU Logo" className="h-10 w-10 object-contain" />
             </div>
             <div>
               <h1 className="text-lg font-semibold text-foreground">KsTU IT Helpdesk</h1>
@@ -71,8 +71,8 @@ export default function AdminLoginPage() {
       <main className="flex-1 flex items-center justify-center p-4 sm:p-8">
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center h-16 w-16 rounded-2xl bg-primary/10 mb-4">
-              <Shield className="h-8 w-8 text-primary" />
+            <div className="inline-flex items-center justify-center h-24 w-24 rounded-2xl bg-white mb-4 shadow-md border border-gray-100">
+              <img src="/kstu-logo.png" alt="KsTU Logo" className="h-20 w-20 object-contain" />
             </div>
             <h2 className="text-2xl font-bold text-foreground">Admin Login</h2>
             <p className="text-muted-foreground mt-2">
